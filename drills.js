@@ -188,4 +188,29 @@ function sortCombined(arr1, arr2) {
   return newArray;
 }
 
-console.log(sortCombined([1, 3, 6, 8, 11],[2, 3, 5, 8, 9, 10]));
+// console.log(sortCombined([1, 3, 6, 8, 11],[2, 3, 5, 8, 9, 10]));
+
+// 9. Remove characters
+// Input:'Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'
+// Output: 'Bttl f th Vwls: Hw vs. Grzny'
+
+function removeCharacters(string, rem){
+  let modifiedString = '';
+  for(let i = 0; i < string.length; i++){
+    for(let j = 0; j < rem.length; j++){
+      if(string[i] !== rem[j]){
+        modifiedString += string[i]
+      } break 
+    }
+  }
+  return modifiedString;
+}
+console.log(removeCharacters('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'))
+
+function removeChars(string, rem){
+  let newString = string;
+  let res = newString.replace(`/[${rem}]/gi`, '')
+  return res;
+
+}
+//console.log(removeChars('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'));
