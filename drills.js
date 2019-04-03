@@ -147,11 +147,45 @@ function deleteSpace(str) {
 // Input: [1, 2, 3, 4, 5]
 // Output: [5]
 function filterArray(arr) {
-  for (let i = 0; i < arr.length; i++) {
+  let i = 0;
+  while (i < arr.length) {
     if (arr[i] < 5) {
       arr.splice(i, 1);
+    }
+    else{
+      i++;
     }
   }
   return arr;
 }
-console.log(filterArray([1, 2, 3, 4, 5]));
+// console.log(filterArray([1, 2, 3, 4, 5]));
+
+// 7. Max sum in the array
+// Input: [-3, 4, 6, -3, 5, -2, 1]
+// Output: 12
+
+function sum(arr){
+  let maxDes = 0;
+  let maxSeq = 0; 
+  for(let i=0; i< arr.length; i++){
+    maxSeq = Math.max(0, maxSeq+arr[i]);
+    maxDes = Math.max(maxDes, maxSeq);
+  }
+  return maxDes;
+}
+
+// console.log(sum([-3, 4, 6, -3, 5, -2, 1]));
+
+// 8. Merge arrays
+// Input:[1, 3, 6, 8, 11] and [2, 3, 5, 8, 9, 10]
+// Output:[1, 2, 3, 3, 5, 6, 8, 8, 9, 10, 11]
+
+function sortCombined(arr1, arr2) {
+  let newArray =[...arr1, ...arr2];
+  newArray.sort(function(a, b) {
+    return a - b;
+  });
+  return newArray;
+}
+
+console.log(sortCombined([1, 3, 6, 8, 11],[2, 3, 5, 8, 9, 10]));
