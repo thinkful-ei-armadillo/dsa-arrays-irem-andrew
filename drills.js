@@ -179,7 +179,7 @@ function sum(arr){
 // 8. Merge arrays
 // Input:[1, 3, 6, 8, 11] and [2, 3, 5, 8, 9, 10]
 // Output:[1, 2, 3, 3, 5, 6, 8, 8, 9, 10, 11]
-
+// while loop
 function sortCombined(arr1, arr2) {
   let newArray =[...arr1, ...arr2];
   newArray.sort(function(a, b) {
@@ -200,17 +200,24 @@ function removeCharacters(string, rem){
     for(let j = 0; j < rem.length; j++){
       if(string[i] !== rem[j]){
         modifiedString += string[i]
-      } break 
+      } 
     }
   }
   return modifiedString;
 }
-console.log(removeCharacters('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'))
+//console.log(removeCharacters('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'))
 
-function removeChars(string, rem){
-  let newString = string;
-  let res = newString.replace(`/[${rem}]/gi`, '')
-  return res;
-
+function modifiedRemoveCharacters(string, rem){
+  let dictionary = {};
+  let modifiedString = '';
+  for(let i = 0; i < rem.length; i++){
+    dictionary[rem[i]] = true;
+  }
+  for(let i = 0; i < string.length; i++){
+    if(!dictionary[string[i]]){
+      modifiedString += string[i]
+    }
+  }
+  return modifiedString;
 }
-//console.log(removeChars('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'));
+console.log(modifiedRemoveCharacters('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'));
