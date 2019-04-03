@@ -151,8 +151,7 @@ function filterArray(arr) {
   while (i < arr.length) {
     if (arr[i] < 5) {
       arr.splice(i, 1);
-    }
-    else{
+    } else {
       i++;
     }
   }
@@ -164,11 +163,11 @@ function filterArray(arr) {
 // Input: [-3, 4, 6, -3, 5, -2, 1]
 // Output: 12
 
-function sum(arr){
+function sum(arr) {
   let maxDes = 0;
-  let maxSeq = 0; 
-  for(let i=0; i< arr.length; i++){
-    maxSeq = Math.max(0, maxSeq+arr[i]);
+  let maxSeq = 0;
+  for (let i = 0; i < arr.length; i++) {
+    maxSeq = Math.max(0, maxSeq + arr[i]);
     maxDes = Math.max(maxDes, maxSeq);
   }
   return maxDes;
@@ -181,7 +180,7 @@ function sum(arr){
 // Output:[1, 2, 3, 3, 5, 6, 8, 8, 9, 10, 11]
 // while loop
 function sortCombined(arr1, arr2) {
-  let newArray =[...arr1, ...arr2];
+  let newArray = [...arr1, ...arr2];
   newArray.sort(function(a, b) {
     return a - b;
   });
@@ -194,30 +193,65 @@ function sortCombined(arr1, arr2) {
 // Input:'Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'
 // Output: 'Bttl f th Vwls: Hw vs. Grzny'
 
-function removeCharacters(string, rem){
-  let modifiedString = '';
-  for(let i = 0; i < string.length; i++){
-    for(let j = 0; j < rem.length; j++){
-      if(string[i] !== rem[j]){
-        modifiedString += string[i]
-      } 
+function removeCharacters(string, rem) {
+  let modifiedString = "";
+  for (let i = 0; i < string.length; i++) {
+    for (let j = 0; j < rem.length; j++) {
+      if (string[i] !== rem[j]) {
+        modifiedString += string[i];
+      }
     }
   }
   return modifiedString;
 }
 //console.log(removeCharacters('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'))
 
-function modifiedRemoveCharacters(string, rem){
+function modifiedRemoveCharacters(string, rem) {
   let dictionary = {};
-  let modifiedString = '';
-  for(let i = 0; i < rem.length; i++){
+  let modifiedString = "";
+  for (let i = 0; i < rem.length; i++) {
     dictionary[rem[i]] = true;
   }
-  for(let i = 0; i < string.length; i++){
-    if(!dictionary[string[i]]){
-      modifiedString += string[i]
+  for (let i = 0; i < string.length; i++) {
+    if (!dictionary[string[i]]) {
+      modifiedString += string[i];
     }
   }
   return modifiedString;
 }
-console.log(modifiedRemoveCharacters('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'));
+console.log(
+  modifiedRemoveCharacters("Battle of the Vowels: Hawaii vs. Grozny", "aeiou")
+);
+
+// 10. Products
+// Input:[1, 3, 9, 4]
+// Output:[108, 36, 12, 27]
+
+function products(arr) {
+  let totalProduct = 1;
+
+  for (let i = 0; i < arr.length; i++) {
+    totalProduct *= arr[i];
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = totalProduct / arr[i];
+  }
+  return arr;
+}
+
+console.log(products([1, 3, 9, 4]));
+
+// 11. 2D array
+function twoD(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i][j] === 0) {
+        arr[i] = 0;
+        arr[i][j] = 0;
+      }
+    }
+  }
+  return arr;
+}
+
