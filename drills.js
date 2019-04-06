@@ -180,33 +180,28 @@ function sum(arr) {
 // Output:[1, 2, 3, 3, 5, 6, 8, 8, 9, 10, 11]
 // while loop
 function sortCombined(arr1, arr2) {
-  let newArray = [...arr1, ...arr2];
-  newArray.sort(function(a, b) {
-    return a - b;
-  });
-  return newArray;
+  let sorted = [];
+  let i1 = 0;
+  let i2 = 0;
+  while (i1 < arr1.length && i2 < arr2.length) {
+    if (arr1[i1] < arr2[i2]) {
+      sorted.push(arr1[i1]);
+      i1 ++;
+    } else {
+      sorted.push(arr2[i2]);
+      i2 ++;
+    }
+  }
+  return sorted;
 }
 
-// console.log(sortCombined([1, 3, 6, 8, 11],[2, 3, 5, 8, 9, 10]));
+console.log(sortCombined([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]));
 
 // 9. Remove characters
 // Input:'Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'
 // Output: 'Bttl f th Vwls: Hw vs. Grzny'
 
-function removeCharacters(string, rem) {
-  let modifiedString = "";
-  for (let i = 0; i < string.length; i++) {
-    for (let j = 0; j < rem.length; j++) {
-      if (string[i] !== rem[j]) {
-        modifiedString += string[i];
-      }
-    }
-  }
-  return modifiedString;
-}
-//console.log(removeCharacters('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'))
-
-function modifiedRemoveCharacters(string, rem) {
+function RemoveCharacters(string, rem) {
   let dictionary = {};
   let modifiedString = "";
   for (let i = 0; i < rem.length; i++) {
@@ -219,9 +214,9 @@ function modifiedRemoveCharacters(string, rem) {
   }
   return modifiedString;
 }
-console.log(
-  modifiedRemoveCharacters("Battle of the Vowels: Hawaii vs. Grozny", "aeiou")
-);
+// console.log(
+//   RemoveCharacters("Battle of the Vowels: Hawaii vs. Grozny", "aeiou")
+// );
 
 // 10. Products
 // Input:[1, 3, 9, 4]
@@ -240,7 +235,7 @@ function products(arr) {
   return arr;
 }
 
-console.log(products([1, 3, 9, 4]));
+// console.log(products([1, 3, 9, 4]));
 
 // 11. 2D array
 function twoD(arr) {
@@ -254,4 +249,3 @@ function twoD(arr) {
   }
   return arr;
 }
-
