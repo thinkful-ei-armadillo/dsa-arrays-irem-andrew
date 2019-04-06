@@ -186,16 +186,26 @@ function sortCombined(arr1, arr2) {
   while (i1 < arr1.length && i2 < arr2.length) {
     if (arr1[i1] < arr2[i2]) {
       sorted.push(arr1[i1]);
-      i1 ++;
+      i1++;
     } else {
       sorted.push(arr2[i2]);
-      i2 ++;
+      i2++;
+    }
+  }
+  console.log(i1, i2);
+  while (i1 < arr1.length || i2 < arr2.length) {
+    if (arr1[i1] > sorted[sorted.length - 1]) {
+      sorted.push(arr1[i1]);
+      i1++;
+    } else if (arr2[i2] > sorted[sorted.length - 1]) {
+      sorted.push(arr2[i2]);
+      i2++;
     }
   }
   return sorted;
 }
 
-console.log(sortCombined([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]));
+console.log(sortCombined([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10, 12]));
 
 // 9. Remove characters
 // Input:'Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'
